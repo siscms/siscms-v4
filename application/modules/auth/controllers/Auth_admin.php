@@ -40,7 +40,7 @@ class Auth_admin extends CI_Controller {
             $password = $this->input->post('password', TRUE);
 
             $user = $this->Users_model->get(array('username' => $username, 'password' => sha1($password)));
-
+            
             if (count($user) > 0) {
                 $this->session->set_userdata('logged', TRUE);
                 $this->session->set_userdata('uid', $user[0]['user_id']);
